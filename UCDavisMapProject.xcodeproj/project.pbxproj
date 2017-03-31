@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		627A6A361E8DE0A900B41181 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 627A6A351E8DE0A900B41181 /* Main.storyboard */; };
+		62B141341E8DCFB900F66154 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B141281E8DCFB800F66154 /* AppDelegate.swift */; };
+		62B141351E8DCFB900F66154 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B141291E8DCFB800F66154 /* Category.swift */; };
+		62B141361E8DCFB900F66154 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1412A1E8DCFB800F66154 /* FavoriteViewController.swift */; };
+		62B141371E8DCFB900F66154 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1412B1E8DCFB800F66154 /* Helpers.swift */; };
+		62B141381E8DCFB900F66154 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1412C1E8DCFB800F66154 /* Location.swift */; };
+		62B141391E8DCFB900F66154 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1412D1E8DCFB800F66154 /* LocationDetailViewController.swift */; };
+		62B1413A1E8DCFB900F66154 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1412E1E8DCFB800F66154 /* MapViewController.swift */; };
+		62B1413B1E8DCFB900F66154 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1412F1E8DCFB800F66154 /* SearchViewController.swift */; };
+		62B1413C1E8DCFB900F66154 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B141301E8DCFB800F66154 /* Reachability.swift */; };
+		62B1413D1E8DCFB900F66154 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62B141311E8DCFB800F66154 /* Assets.xcassets */; };
+		62B1413E1E8DCFB900F66154 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 62B141321E8DCFB800F66154 /* Base.lproj */; };
+		66844D9219815484FC657C66 /* Pods_UCDavisMapProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1C52DE8FADC6F8E2740B19 /* Pods_UCDavisMapProject.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		18E39612F342D11A809CBEF7 /* Pods-UCDavisMapProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCDavisMapProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-UCDavisMapProject/Pods-UCDavisMapProject.release.xcconfig"; sourceTree = "<group>"; };
+		627A6A351E8DE0A900B41181 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		62B140F61E8DCF2000F66154 /* UCDavisMapProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UCDavisMapProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		62B141271E8DCFB800F66154 /* UCDavisMapProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UCDavisMapProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		62B141281E8DCFB800F66154 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		62B141291E8DCFB800F66154 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		62B1412A1E8DCFB800F66154 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		62B1412B1E8DCFB800F66154 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		62B1412C1E8DCFB800F66154 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		62B1412D1E8DCFB800F66154 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
+		62B1412E1E8DCFB800F66154 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		62B1412F1E8DCFB800F66154 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		62B141301E8DCFB800F66154 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		62B141311E8DCFB800F66154 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Downloads/SwiftUIDemo-master/UCDavisMap/UCDavisMap/Assets.xcassets"; sourceTree = "<group>"; };
+		62B141321E8DCFB800F66154 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = "../../../../Downloads/SwiftUIDemo-master/UCDavisMap/UCDavisMap/Base.lproj"; sourceTree = "<group>"; };
+		62B141331E8DCFB900F66154 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A1C52DE8FADC6F8E2740B19 /* Pods_UCDavisMapProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UCDavisMapProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F37E4EC37B37F469A6B34214 /* Pods-UCDavisMapProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCDavisMapProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UCDavisMapProject/Pods-UCDavisMapProject.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		62B140F31E8DCF2000F66154 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66844D9219815484FC657C66 /* Pods_UCDavisMapProject.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		296AA2B98F079AD3332B0299 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A1C52DE8FADC6F8E2740B19 /* Pods_UCDavisMapProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4FDEFFF462CDEE379E50416D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F37E4EC37B37F469A6B34214 /* Pods-UCDavisMapProject.debug.xcconfig */,
+				18E39612F342D11A809CBEF7 /* Pods-UCDavisMapProject.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		62B140ED1E8DCF2000F66154 = {
+			isa = PBXGroup;
+			children = (
+				62B140F81E8DCF2000F66154 /* UCDavisMapProject */,
+				62B140F71E8DCF2000F66154 /* Products */,
+				4FDEFFF462CDEE379E50416D /* Pods */,
+				296AA2B98F079AD3332B0299 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		62B140F71E8DCF2000F66154 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				62B140F61E8DCF2000F66154 /* UCDavisMapProject.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		62B140F81E8DCF2000F66154 /* UCDavisMapProject */ = {
+			isa = PBXGroup;
+			children = (
+				62B141281E8DCFB800F66154 /* AppDelegate.swift */,
+				62B141291E8DCFB800F66154 /* Category.swift */,
+				62B1412A1E8DCFB800F66154 /* FavoriteViewController.swift */,
+				62B1412B1E8DCFB800F66154 /* Helpers.swift */,
+				62B1412C1E8DCFB800F66154 /* Location.swift */,
+				62B1412D1E8DCFB800F66154 /* LocationDetailViewController.swift */,
+				62B1412E1E8DCFB800F66154 /* MapViewController.swift */,
+				62B1412F1E8DCFB800F66154 /* SearchViewController.swift */,
+				62B141301E8DCFB800F66154 /* Reachability.swift */,
+				627A6A351E8DE0A900B41181 /* Main.storyboard */,
+				62B141311E8DCFB800F66154 /* Assets.xcassets */,
+				62B141321E8DCFB800F66154 /* Base.lproj */,
+				62B141331E8DCFB900F66154 /* Info.plist */,
+				62B141271E8DCFB800F66154 /* UCDavisMapProject-Bridging-Header.h */,
+			);
+			path = UCDavisMapProject;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		62B140F51E8DCF2000F66154 /* UCDavisMapProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62B1411E1E8DCF2100F66154 /* Build configuration list for PBXNativeTarget "UCDavisMapProject" */;
+			buildPhases = (
+				09F8FBE044FCDE17854549A5 /* [CP] Check Pods Manifest.lock */,
+				62B140F21E8DCF2000F66154 /* Sources */,
+				62B140F31E8DCF2000F66154 /* Frameworks */,
+				62B140F41E8DCF2000F66154 /* Resources */,
+				9E1A0835CE117F5D31C01FB2 /* [CP] Embed Pods Frameworks */,
+				6BE7F53BE3E6B6A1F3FF5593 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UCDavisMapProject;
+			productName = UCDavisMapProject;
+			productReference = 62B140F61E8DCF2000F66154 /* UCDavisMapProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		62B140EE1E8DCF2000F66154 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Dahlia Salem";
+				TargetAttributes = {
+					62B140F51E8DCF2000F66154 = {
+						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 62B140F11E8DCF2000F66154 /* Build configuration list for PBXProject "UCDavisMapProject" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 62B140ED1E8DCF2000F66154;
+			productRefGroup = 62B140F71E8DCF2000F66154 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				62B140F51E8DCF2000F66154 /* UCDavisMapProject */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		62B140F41E8DCF2000F66154 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62B1413E1E8DCFB900F66154 /* Base.lproj in Resources */,
+				62B1413D1E8DCFB900F66154 /* Assets.xcassets in Resources */,
+				627A6A361E8DE0A900B41181 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09F8FBE044FCDE17854549A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6BE7F53BE3E6B6A1F3FF5593 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UCDavisMapProject/Pods-UCDavisMapProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E1A0835CE117F5D31C01FB2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UCDavisMapProject/Pods-UCDavisMapProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		62B140F21E8DCF2000F66154 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62B141341E8DCFB900F66154 /* AppDelegate.swift in Sources */,
+				62B141361E8DCFB900F66154 /* FavoriteViewController.swift in Sources */,
+				62B1413B1E8DCFB900F66154 /* SearchViewController.swift in Sources */,
+				62B141381E8DCFB900F66154 /* Location.swift in Sources */,
+				62B141351E8DCFB900F66154 /* Category.swift in Sources */,
+				62B1413C1E8DCFB900F66154 /* Reachability.swift in Sources */,
+				62B141391E8DCFB900F66154 /* LocationDetailViewController.swift in Sources */,
+				62B141371E8DCFB900F66154 /* Helpers.swift in Sources */,
+				62B1413A1E8DCFB900F66154 /* MapViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		62B1411C1E8DCF2100F66154 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		62B1411D1E8DCF2100F66154 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		62B1411F1E8DCF2100F66154 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F37E4EC37B37F469A6B34214 /* Pods-UCDavisMapProject.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = UCDavisMapProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.self.UCDavisMapProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UCDavisMapProject/UCDavisMapProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		62B141201E8DCF2100F66154 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18E39612F342D11A809CBEF7 /* Pods-UCDavisMapProject.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = UCDavisMapProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.self.UCDavisMapProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UCDavisMapProject/UCDavisMapProject-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		62B140F11E8DCF2000F66154 /* Build configuration list for PBXProject "UCDavisMapProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62B1411C1E8DCF2100F66154 /* Debug */,
+				62B1411D1E8DCF2100F66154 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62B1411E1E8DCF2100F66154 /* Build configuration list for PBXNativeTarget "UCDavisMapProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62B1411F1E8DCF2100F66154 /* Debug */,
+				62B141201E8DCF2100F66154 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 62B140EE1E8DCF2000F66154 /* Project object */;
+}
