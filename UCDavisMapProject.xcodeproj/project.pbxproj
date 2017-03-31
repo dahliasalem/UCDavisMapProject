@@ -36,8 +36,8 @@
 		62B1412E1E8DCFB800F66154 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		62B1412F1E8DCFB800F66154 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		62B141301E8DCFB800F66154 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		62B141311E8DCFB800F66154 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Downloads/SwiftUIDemo-master/UCDavisMap/UCDavisMap/Assets.xcassets"; sourceTree = "<group>"; };
-		62B141321E8DCFB800F66154 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = "../../../../Downloads/SwiftUIDemo-master/UCDavisMap/UCDavisMap/Base.lproj"; sourceTree = "<group>"; };
+		62B141311E8DCFB800F66154 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		62B141321E8DCFB800F66154 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		62B141331E8DCFB900F66154 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A1C52DE8FADC6F8E2740B19 /* Pods_UCDavisMapProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UCDavisMapProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37E4EC37B37F469A6B34214 /* Pods-UCDavisMapProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCDavisMapProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UCDavisMapProject/Pods-UCDavisMapProject.debug.xcconfig"; sourceTree = "<group>"; };

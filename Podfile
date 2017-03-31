@@ -2,7 +2,7 @@
 
 
 source 'https://github.com/CocoaPods/Specs.git'
-target ‘UCDavisMapProject’ do
+target 'UCDavisMapProject' do
     pod 'GoogleMaps'
     pod 'GooglePlaces'
     
