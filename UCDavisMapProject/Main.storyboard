@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search-->
+        <!--Search View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="SearchViewController" customModule="UCDavisMapProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hap-v8-ASR">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="538"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="locationCell" id="g3H-dL-oBj">
@@ -47,13 +47,24 @@
                         <constraints>
                             <constraint firstItem="Hap-v8-ASR" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="2wx-mI-FJh"/>
                             <constraint firstAttribute="trailing" secondItem="Hap-v8-ASR" secondAttribute="trailing" id="3L0-nj-dIl"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Hap-v8-ASR" secondAttribute="bottom" constant="30" id="ENc-ij-TEX"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Hap-v8-ASR" secondAttribute="bottom" id="ENc-ij-TEX"/>
                             <constraint firstItem="Hap-v8-ASR" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="u8l-fC-XFo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Search" id="GQP-hw-uLF"/>
+                    <navigationItem key="navigationItem" id="GQP-hw-uLF">
+                        <nil key="title"/>
+                        <textField key="titleView" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" id="rMV-7i-q9E">
+                            <rect key="frame" x="30" y="7" width="261" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Hap-v8-ASR" id="ZV5-iZ-coI"/>
+                        <outlet property="tf_A" destination="rMV-7i-q9E" id="XSl-VG-fJi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -82,7 +93,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gJ-LM-kIc">
                                 <rect key="frame" x="98" y="249" width="125" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="DIrections to Here"/>
+                                <state key="normal" title="Directions to Here"/>
                                 <connections>
                                     <action selector="directions:" destination="lJC-Q3-If3" eventType="touchUpInside" id="Ybf-PJ-nfP"/>
                                 </connections>
@@ -126,7 +137,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Favorite Screen" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="brG-1U-fwi">
-                                <rect key="frame" x="32.5" y="263" width="255" height="42"/>
+                                <rect key="frame" x="33" y="263" width="255" height="42"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -161,14 +172,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Map Screen" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="62.5" y="263" width="195" height="42"/>
+                                <rect key="frame" x="63" y="263" width="195" height="42"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by AboutViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="57.5" y="313" width="205" height="17"/>
+                                <rect key="frame" x="58" y="313" width="205" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -272,6 +283,6 @@
         <image name="star-7" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HAp-bf-Lfp"/>
+        <segue reference="zbA-wW-EK7"/>
     </inferredMetricsTieBreakers>
 </document>

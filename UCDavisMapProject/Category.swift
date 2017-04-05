@@ -5,7 +5,7 @@ import RealmSwift
 
 class Category: Object {
     
-    let locations = List<Location>()
+    var locations = List<Location>()
     dynamic var name = "null"
         
     
