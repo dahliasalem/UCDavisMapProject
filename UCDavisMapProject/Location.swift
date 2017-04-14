@@ -13,5 +13,14 @@ class Location : Object {
     dynamic var isFavorite = false
 
     
+    override static func primaryKey() -> String? {
+        return "Name"
+    }
+    
+    
+    
 }
+
+    
+    
 

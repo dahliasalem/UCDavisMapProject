@@ -8,7 +8,7 @@ class Helpers {
     static func DB_insert(obj : Object){
     
         try! self.realm.write{
-            self.realm.add(obj)
+            self.realm.add(obj, update: true)
     
         }
     }

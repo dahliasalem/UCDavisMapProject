@@ -20,6 +20,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
     var CategoryNames = [String]()
     var reach = Reachability()
     var filteredLocations = [Location]()
+    var apiLocations = [String: Location]()
     
     let realm:Realm = try! Realm()
     let searchController = UISearchController(searchResultsController: nil)
@@ -56,7 +57,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
         //self.reloadInputViews()
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = nil
-        
         tf_A.delegate = self
         tf_A.tintColor = UIColor.clear
         tf_A.text = "All Locations"
@@ -73,22 +73,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
             return
             
         }
-        // var NSURLSession : NSURLSession
-        //self.dropDown.isHidden = true
+        
         if reach.isInternetAvailable() == true {
             debugPrint("internet is available")
-            //print("yes")
-            try! realm.write {
-                realm.deleteAll()
-            }
             parseJSON()
         } else {
             debugPrint("internet is not available")
             queryRealm()
             
         }
-        
-        
     }
     
     
@@ -123,11 +116,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
                 print("Everyone is fine, file downloaded successfully.")
                 
                 do{
-                    
-                    // var names = [String]()
-                    
-                    // var categories = [Category]()
-                    
+              
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [[String:AnyObject]]
                     
                     DispatchQueue.main.async{
@@ -152,6 +141,14 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
                                     location.Link = link!
                                     location.lat = lat!
                                     location.lng = lng!
+                                    
+    if let myPuppy = self.realm.object(ofType: Location.self, forPrimaryKey: "\(location.Name)"){
+    print("here")
+    location.isFavorite = myPuppy.isFavorite
+                                    }
+                                    
+                                    
+                                    self.apiLocations[location.Name] = location
                                     
                                     category.locations.append(location)
                                     
@@ -183,25 +180,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
     
     
     func queryRealm () {
-        let cleanUP = realm.objects(Location.self).sorted(byKeyPath: "Name" , ascending: true )
-        
-        for i in 0 ..< cleanUP.count-100  {
-            
-            
-            if cleanUP[i].Name == cleanUP[i+1].Name{
-                               try! realm.write {
-                    realm.delete(cleanUP[i+1])
-                  
-                    
-                }
-            }
-            
-        }
-        
         
         let LocObjects = try! Realm().objects(Location.self)
         let LocByName = LocObjects.sorted(byKeyPath: "Name" , ascending: true )
          for loc in LocByName {
+//            if apiLocations[loc.Name] == nil {
+//                try! realm.write {
+//                    realm.delete(loc)
+//                }
+//            }
+            
             Locations.append(loc)
         }
         
@@ -214,9 +202,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
         
       
     }
-    
-    
-    
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -279,11 +264,28 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
         }
         
         try! self.realm.write{
+            //let locya = Location()
             if searchController.isActive && searchController.searchBar.text != "" {
-                filteredLocations[indexPath.row].isFavorite = !filteredLocations[indexPath.row].isFavorite
-            }
-            else {
+                 filteredLocations[indexPath.row].isFavorite = !filteredLocations[indexPath.row].isFavorite
+                
+//                locya.Name = filteredLocations[indexPath.row].Name
+//                locya.lat = filteredLocations[indexPath.row].lat
+//                locya.lng = filteredLocations[indexPath.row].lng
+//                locya.Link = filteredLocations[indexPath.row].Link
+//                locya.isFavorite = filteredLocations[indexPath.row].isFavorite
+//                
+//                realm.add(locya, update: true)
+            } else {
                 Locations[indexPath.row].isFavorite = !Locations[indexPath.row].isFavorite
+                
+//                locya.Name = Locations[indexPath.row].Name
+//                locya.lat = Locations[indexPath.row].lat
+//                locya.lng = Locations[indexPath.row].lng
+//                locya.Link = Locations[indexPath.row].Link
+//                locya.isFavorite = Locations[indexPath.row].isFavorite
+//                
+//                realm.add(locya, update: true)
+
             }
         }
         self.tableView.reloadData()

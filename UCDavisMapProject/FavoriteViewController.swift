@@ -40,11 +40,15 @@ class FavoriteViewController: UIViewController, UITableViewDataSource {
         favLocations.removeAll()
         
         let favObjects = try! Realm().objects(Location.self).filter("isFavorite == true")
-               for fav in favObjects {
-            
-            favLocations.append(fav)
-        }
+        
+//               for fav in favObjects {
+//            
+//            favLocations.append(fav)
+//        }
  
+        favLocations = Array(favObjects)
+        
+        
            }
  
     
@@ -63,8 +67,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        //queryrealm()
-        
+    
         let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as UITableViewCell
              cell.textLabel?.text = favLocations[indexPath.row].Name
         
