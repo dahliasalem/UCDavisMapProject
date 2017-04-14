@@ -5,40 +5,47 @@ import Foundation
 import RealmSwift
 
 
-class SearchViewController: UIViewController, UITableViewDataSource, UISearchResultsUpdating, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-   
+class SearchViewController: UIViewController, UITableViewDataSource, UISearchResultsUpdating, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITableViewDelegate {
+    
     
     @IBOutlet weak var tf_A: UITextField!
     @IBOutlet var tableView : UITableView!
-    
+    @IBOutlet var doneButton: UIBarButtonItem!
+
     var doneCalled: Bool = true
-    
+    var addCalled: Bool = false
     var picker : UIPickerView!
     var activeValue = "All Locations"
-    
     var Locations = [Location]()
-   
-  
     var CategoryNames = [String]()
-    let realm:Realm = try! Realm()
     var reach = Reachability()
-    let searchController = UISearchController(searchResultsController: nil)
     var filteredLocations = [Location]()
-
     
-
+    let realm:Realm = try! Realm()
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var detailSome: String? {
+        didSet {
+            
+            addCalled = true
+          
+        }
+        
+    }
+    
+    
     @available(iOS 8.0, *)
     public func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearch(searchText: searchController.searchBar.text!)
     }
-
-  
+    
+    
     
     func filterContentForSearch(searchText: String, scope: String = "All"){
         
         filteredLocations = Locations.filter{ loc in
             return loc.Name.lowercased().contains(searchText.lowercased())
-        
+            
         }
         
         tableView.reloadData()
@@ -46,31 +53,37 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
     }
     
     override func viewDidLoad() {
+        //self.reloadInputViews()
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = nil
         
         tf_A.delegate = self
         tf_A.tintColor = UIColor.clear
         tf_A.text = "All Locations"
-        //tableView.isUserInteractionEnabled = false
-
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
         
-        // var NSURLSession : NSURLSession
-         //self.dropDown.isHidden = true
-        if reach.isInternetAvailable() == true {
+        //tableView.isUserInteractionEnabled = false
+        
+        if addCalled == true {
+            self.tableView.allowsMultipleSelection = true
+            queryRealm()
+            return
             
+        }
+        // var NSURLSession : NSURLSession
+        //self.dropDown.isHidden = true
+        if reach.isInternetAvailable() == true {
+            debugPrint("internet is available")
             //print("yes")
             try! realm.write {
                 realm.deleteAll()
             }
             parseJSON()
-            searchController.searchResultsUpdater = self
-            searchController.dimsBackgroundDuringPresentation = false
-            definesPresentationContext = true
-            tableView.tableHeaderView = searchController.searchBar
-            
-            
         } else {
-            
+            debugPrint("internet is not available")
             queryRealm()
             
         }
@@ -78,13 +91,21 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
         
     }
     
-    func doneClicked () {
-        
+    
+    override func viewDidAppear(_ animated: Bool) {
+    
+        if addCalled == true {
+            self.navigationItem.rightBarButtonItem = self.doneButton
+
+            
+        }
+       
     }
+    
+    
     
     func parseJSON () {
         
-        //Helpers.printSome()
         debugPrint("Path to realm file: " + realm.configuration.fileURL!.absoluteString)
         let requestURL: NSURL = NSURL(string: "http://mobile.ucdavis.edu/locations/?format=json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
@@ -103,79 +124,58 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
                 
                 do{
                     
-                    var names = [String]()
+                    // var names = [String]()
                     
                     // var categories = [Category]()
                     
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [[String:AnyObject]]
                     
-                    for i in 0...json.count-1 {
-                        
-                        
-                        let category = Category()
-                        category.name = json[i]["name"] as! String
-                        
-                        
-                        if let stations = json[i]["locations"] as? [[String: AnyObject]] {
+                    DispatchQueue.main.async{
+                        for i in 0...json.count-1 {
                             
-                            for station in stations {
+                            let category = Category()
+                            category.name = json[i]["name"] as! String
+                            
+                            
+                            if let stations = json[i]["locations"] as? [[String: AnyObject]] {
                                 
-                                if let name = station["name"] as? String {
+                                for station in stations {
                                     
-                                    if let link = station["link"] as? String {
-                                        
-                                        if let lat = station["lat"] as? String{
-                                            
-                                            if let lng = station["lng"] as? String {
-                                                let location = Location()
-                                                
-                                                
-                                                location.Name = name
-                                                location.Link = link
-                                                location.lat = lat
-                                                location.lng = lng
-                                                
-                                                category.locations.append(location)
-                                                //print(name)
-                                                
-                                            }
-                                        }
-                                    }
-                                    names.append(name)
-                                    //print(name)
+                                    let name = station["name"] as? String
+                                    let link = station["link"] as? String
+                                    let lat = station["lat"] as? String
+                                    let lng = station["lng"] as? String
+                                    
+                                    let location = Location()
+                                    
+                                    location.Name = name!
+                                    location.Link = link!
+                                    location.lat = lat!
+                                    location.lng = lng!
+                                    
+                                    category.locations.append(location)
+                                    
                                 }
                             }
+                            
+                            Helpers.DB_insert(obj: category)
+                            
                         }
-                        
-                        Helpers.DB_insert(obj: category)
-                        
-                    }
-                    
-                    
-                    
-                    
-                    DispatchQueue.main.async{
-                        self.queryRealm ()
+                        self.queryRealm()
                         self.tableView.reloadData()
                         //self.picker.reloadAllComponents()
                     }
                     
                     
                     
-                }catch {
+                } catch {
                     print("Error with Json: \(error)")
                 }
-                
-                
-                
-                
+  
             }
         }
         
         task.resume()
-        
-        
-        
         
     }
     
@@ -183,27 +183,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
     
     
     func queryRealm () {
-        
-        //let catya = Category()
-        
-        //catya.name = "All Locations"
-        
-        //var counter = 0
-       
-        
-        // initial way of cleaning Realm DB
         let cleanUP = realm.objects(Location.self).sorted(byKeyPath: "Name" , ascending: true )
-
         
         for i in 0 ..< cleanUP.count-100  {
             
             
             if cleanUP[i].Name == cleanUP[i+1].Name{
-                //counter += 10
-                print("first if")
-                try! realm.write {
+                               try! realm.write {
                     realm.delete(cleanUP[i+1])
-                    print("inside")
+                  
                     
                 }
             }
@@ -213,32 +201,20 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
         
         let LocObjects = try! Realm().objects(Location.self)
         let LocByName = LocObjects.sorted(byKeyPath: "Name" , ascending: true )
-        
-        
-        
-        
-        
-        
-        for loc in LocByName {
+         for loc in LocByName {
             Locations.append(loc)
-            }
+        }
         
         let CatObjects = try! Realm().objects(Category.self)
         CategoryNames.append("All Locations")
-    
+        
         for cat in CatObjects {
             CategoryNames.append(cat.name)
-                    }
+        }
         
-       // let array = Array(Categories[0].locations)
-        
-        //debugPrint(Categories[0])
-        print("here")
-        //debugPrint(array)
-        
-        //Locations = Array(Categories[0].locations)
-        
+      
     }
+    
     
     
     
@@ -271,15 +247,46 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
             locya = filteredLocations[indexPath.row]
         } else {
             
-             locya = Locations[indexPath.row]
+            locya = Locations[indexPath.row]
         }
         
-       
+        
         
         cell.textLabel?.text = locya.Name
         
         
+        if addCalled == true{
+            if searchController.isActive && searchController.searchBar.text != "" {
+                cell.accessoryType = filteredLocations[indexPath.row].isFavorite ? .checkmark: .none
+            } else {
+                cell.accessoryType = Locations[indexPath.row].isFavorite ? .checkmark: .none
+            }
+            cell.selectionStyle = .none
+        }
+        
         return cell
+    }
+    
+    
+    
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if !addCalled {
+            return
+        }
+        
+        try! self.realm.write{
+            if searchController.isActive && searchController.searchBar.text != "" {
+                filteredLocations[indexPath.row].isFavorite = !filteredLocations[indexPath.row].isFavorite
+            }
+            else {
+                Locations[indexPath.row].isFavorite = !Locations[indexPath.row].isFavorite
+            }
+        }
+        self.tableView.reloadData()
     }
     
     
@@ -296,9 +303,24 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
     }
     
     
+    override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
+        if let ident = identifier {
+            if ident == "locationDetail" {
+                
+                if addCalled == true {
+                    return false
+                }
+                
+            }
+            
+        }
+        return true
+    }
+    
     
    	
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         
         if segue.identifier == "locationDetail" {
             
@@ -334,13 +356,13 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-            return CategoryNames[row]
+        return CategoryNames[row]
         
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-         activeValue = CategoryNames[row]
+        activeValue = CategoryNames[row]
         
         if doneCalled == true {
             
@@ -354,9 +376,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
                 
             }
             
-
             
-           
+            
+            
             if CategoryNames[row] == "Student & Staff Resources" {
                 
                 let myPuppy = realm.objects(Category.self).filter("name == 'Student & Staff Resources'").first
@@ -366,20 +388,19 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
                 //self.dropDown.reloadAllComponents()
                 
             }
-
             
-    
+            
+            
             if CategoryNames[row] == "Housing & Dining" {
                 
                 let myPuppy = realm.objects(Category.self).filter("name == 'Housing & Dining'").first
                 
                 Locations = Array(myPuppy!.locations)
-                //self.tableView.reloadData()
-                //self.dropDown.reloadAllComponents()
+                
                 
             }
             
-
+            
             
             
             if CategoryNames[row] == "Places of Interest" {
@@ -387,8 +408,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
                 let myPuppy = realm.objects(Category.self).filter("name == 'Places of Interest'").first
                 
                 Locations = Array(myPuppy!.locations)
-                //self.tableView.reloadData()
-                //self.dropDown.reloadAllComponents()
+                
                 
             }
             
@@ -398,8 +418,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
                 let myPuppy = realm.objects(Category.self).filter("name == 'Recreation'").first
                 
                 Locations = Array(myPuppy!.locations)
-                //self.tableView.reloadData()
-                //self.dropDown.reloadAllComponents()
+              
                 
             }
             
@@ -410,8 +429,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
                 let myPuppy = realm.objects(Category.self).filter("name == 'Buildings'").first
                 
                 Locations = Array(myPuppy!.locations)
-                //self.tableView.reloadData()
-                //self.dropDown.reloadAllComponents()
                 
             }
             
@@ -420,10 +437,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
             
         }
         
-                debugPrint("picker view")
-        
     }
-
+    
     
     
     
@@ -503,16 +518,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
     }
     
     
-    
+    @IBAction func cancel(_ sender: Any) {
+        //self.reloadInputViews()
+        self.dismiss(animated: true, completion: nil)
+        
+    }
     
     
     
     
 }
-
-
-
-
 
 
 /*

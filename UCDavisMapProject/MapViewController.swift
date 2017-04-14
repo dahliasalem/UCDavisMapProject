@@ -5,11 +5,10 @@ import GoogleMaps
 class MapViewController: UIViewController {
 
     
-    
     var detailMap: Location? {
         didSet {
-            
-            self.specficView()
+
+        self.specficView()
             
         }
         
@@ -20,6 +19,7 @@ class MapViewController: UIViewController {
     self.intialView ()
         
     }
+    
     
     
     func intialView () {
@@ -36,9 +36,7 @@ class MapViewController: UIViewController {
         marker.title = "Sydney"
         marker.snippet = "Australia"
         marker.map = mapView
-
-        
-        
+  
         
     }
     
@@ -49,13 +47,11 @@ class MapViewController: UIViewController {
             let mapLat = Double(map.lat)
             let mapLng = Double(map.lng)
             
-            // Create a GMSCameraPosition that tells the map to display the
-            // coordinate -33.86,151.20 at zoom level 6.
+    
             let camera = GMSCameraPosition.camera(withLatitude: mapLat!, longitude: mapLng!, zoom: 18.0)
             let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
             view = mapView
             
-            // Creates a marker in the center of the map.
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: mapLat!, longitude: mapLng!)
             marker.title = map.Name
@@ -64,31 +60,14 @@ class MapViewController: UIViewController {
 
             
         }
-        
-        
-
-        
-        
+    
     }
     
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -10,6 +10,7 @@ class Location : Object {
     dynamic var Link = "null"
     dynamic var lat = "null"
     dynamic var lng = "null"
+    dynamic var isFavorite = false
 
     
 }
