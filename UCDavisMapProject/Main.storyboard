@@ -345,8 +345,8 @@
         <image name="star-7" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0jA-3J-ePs"/>
-        <segue reference="8ET-UK-eTq"/>
         <segue reference="zbA-wW-EK7"/>
+        <segue reference="8ET-UK-eTq"/>
+        <segue reference="u7Y-xg-7CH"/>
     </inferredMetricsTieBreakers>
 </document>

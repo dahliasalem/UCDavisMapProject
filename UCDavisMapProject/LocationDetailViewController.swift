@@ -51,13 +51,13 @@ class LocationDetailViewController: UIViewController {
         // Update the user interface for the detail item.
         if let location = detailLocation {
 
-            self.latitude = Double(location.lat)!
-            self.longitude = Double(location.lng)!
-            self.locTitle = location.Name
+            self.latitude = location.lat
+            self.longitude = location.lng
+            self.locTitle = location.name
             
             title = "INFO"
             
-            let basicDetails = "\(location.Name)\n"
+            let basicDetails = "\(location.name)\n"
             
            
             

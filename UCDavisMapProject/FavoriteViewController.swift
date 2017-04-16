@@ -9,23 +9,20 @@ class FavoriteViewController: UIViewController, UITableViewDataSource {
     var favLocations = [Location]()
     @IBOutlet weak var favTable: UITableView!
  
-    var something = "lol"
     
     
     override func viewDidLoad() {
-       
         super.viewDidLoad()
         
-        queryrealm()
-        self.favTable.reloadData()
-            }
+        reloadTableData()
+        
+    }
 
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        queryrealm()
-        self.favTable.reloadData()
+        reloadTableData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,21 +32,10 @@ class FavoriteViewController: UIViewController, UITableViewDataSource {
     
     
     
-    func queryrealm () {
-        
-        favLocations.removeAll()
-        
-        let favObjects = try! Realm().objects(Location.self).filter("isFavorite == true")
-        
-//               for fav in favObjects {
-//            
-//            favLocations.append(fav)
-//        }
- 
-        favLocations = Array(favObjects)
-        
-        
-           }
+    func reloadTableData() {
+        favLocations = Array(try! Realm().objects(Location.self).filter("isFavorite == true").sorted(byKeyPath: "name" , ascending: true ))
+        self.favTable.reloadData()
+    }
  
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,7 +55,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource {
         
     
         let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as UITableViewCell
-             cell.textLabel?.text = favLocations[indexPath.row].Name
+             cell.textLabel?.text = favLocations[indexPath.row].name
         
         
         return cell
@@ -82,24 +68,20 @@ class FavoriteViewController: UIViewController, UITableViewDataSource {
         
         if segue.identifier == "addFav" {
             
-            print("inside if")
-            let locya = something
             
-            let DestViewController = segue.destination as! UINavigationController
-            let targetController = DestViewController.topViewController as! SearchViewController
-            targetController.detailSome = locya
+            let destViewController = segue.destination as! UINavigationController
+            let searchViewController = destViewController.topViewController as! SearchViewController
+            searchViewController.isComingFromFavorites = true
             
      
         }
         
         
         if segue.identifier == "showFav" {
-            
             if let indexPath = self.favTable.indexPathForSelectedRow {
                  let  loce = favLocations[indexPath.row]
                  (segue.destination as! LocationDetailViewController).detailLocation = loce
             }
-
             
         }
         

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6261E5931EA309B700FF089D /* DataLoadedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6261E5921EA309B700FF089D /* DataLoadedState.swift */; };
 		627A6A361E8DE0A900B41181 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 627A6A351E8DE0A900B41181 /* Main.storyboard */; };
 		62B141341E8DCFB900F66154 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B141281E8DCFB800F66154 /* AppDelegate.swift */; };
 		62B141351E8DCFB900F66154 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B141291E8DCFB800F66154 /* Category.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		18E39612F342D11A809CBEF7 /* Pods-UCDavisMapProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCDavisMapProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-UCDavisMapProject/Pods-UCDavisMapProject.release.xcconfig"; sourceTree = "<group>"; };
+		6261E5921EA309B700FF089D /* DataLoadedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoadedState.swift; sourceTree = "<group>"; };
 		627A6A351E8DE0A900B41181 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		62B140F61E8DCF2000F66154 /* UCDavisMapProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UCDavisMapProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B141271E8DCFB800F66154 /* UCDavisMapProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UCDavisMapProject-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				62B141291E8DCFB800F66154 /* Category.swift */,
 				62B1412A1E8DCFB800F66154 /* FavoriteViewController.swift */,
 				62B1412B1E8DCFB800F66154 /* Helpers.swift */,
+				6261E5921EA309B700FF089D /* DataLoadedState.swift */,
 				62B1412C1E8DCFB800F66154 /* Location.swift */,
 				62B1412D1E8DCFB800F66154 /* LocationDetailViewController.swift */,
 				62B1412E1E8DCFB800F66154 /* MapViewController.swift */,
@@ -239,6 +242,7 @@
 				62B141361E8DCFB900F66154 /* FavoriteViewController.swift in Sources */,
 				62B1413B1E8DCFB900F66154 /* SearchViewController.swift in Sources */,
 				62B141381E8DCFB900F66154 /* Location.swift in Sources */,
+				6261E5931EA309B700FF089D /* DataLoadedState.swift in Sources */,
 				62B141351E8DCFB900F66154 /* Category.swift in Sources */,
 				62B1413C1E8DCFB900F66154 /* Reachability.swift in Sources */,
 				62B141391E8DCFB900F66154 /* LocationDetailViewController.swift in Sources */,

@@ -44,17 +44,17 @@ class MapViewController: UIViewController {
         
         if let map = detailMap {
             
-            let mapLat = Double(map.lat)
-            let mapLng = Double(map.lng)
+            let mapLat = map.lat
+            let mapLng = map.lng
             
     
-            let camera = GMSCameraPosition.camera(withLatitude: mapLat!, longitude: mapLng!, zoom: 18.0)
+            let camera = GMSCameraPosition.camera(withLatitude: mapLat, longitude: mapLng, zoom: 18.0)
             let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
             view = mapView
             
             let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: mapLat!, longitude: mapLng!)
-            marker.title = map.Name
+            marker.position = CLLocationCoordinate2D(latitude: mapLat, longitude: mapLng)
+            marker.title = map.name
             marker.snippet = "Australia"
             marker.map = mapView
 
