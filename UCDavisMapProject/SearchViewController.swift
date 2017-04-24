@@ -27,8 +27,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
     let searchController = UISearchController(searchResultsController: nil)
     
     
-    
-    
     @available(iOS 8.0, *)
     public func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearch(searchText: searchController.searchBar.text!)
@@ -48,8 +46,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UISearchRes
             Helpers.DB_insert(obj: category)
         }
         
-        
-        for loc in locationsTable {
+        let locations = Array(realm.objects(Location.self))
+        for loc in locations {
             if APILocations[loc.name] == nil {
                 try! realm.write {
                     realm.delete(loc)
